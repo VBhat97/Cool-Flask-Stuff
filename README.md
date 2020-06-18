@@ -1,2 +1,2 @@
 # Cool-Flask-Stuff
-New Innovative stuff using Flask (Python)
+Adding all new stuffs learnt in Flask (Python)
