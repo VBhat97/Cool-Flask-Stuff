@@ -1,8 +1,9 @@
-from flask import Flask,render_template,request,redirect,url_for
+from flask import Flask,render_template,request,redirect,url_for,flash
 import json
 import os
 
 app = Flask(__name__)
+app.secret_key = 'h3ibhihgibhh132ujb'
 
 @app.route("/")
 def home():
@@ -18,6 +19,7 @@ def about():
                 url=json.load(urls_file)
 
         if request.form['name'] in url.keys():
+            flash('The name is already taken, sorry. Try another one.')
             return redirect(url_for('home'))
 
         url[request.form['name']]={'url':request.form['code']}

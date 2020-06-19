@@ -1,4 +1,8 @@
 <h1>URL Shortener</h1>
+
+{% for i in get_flashed_messages()%}
+<h2>{{ i }}</h2>
+{% endfor %}
 <form action="your-url" method="POST">
     <label for="url">URL: </label>
     <input type="url" name="code" value="" required>
