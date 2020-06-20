@@ -36,3 +36,12 @@ def about():
         return render_template('url.html')
     else:
         return redirect(url_for('home'))
+
+@app.route('/<string:code>')
+def redirect_to_url(code):
+    if os.path.exists('urls.json'):
+        with open('urls.json') as urls_file:
+            url=json.load(urls_file)
+            if 'url' in url[code].keys():
+                return redirect(url[code]['url'])
+    
